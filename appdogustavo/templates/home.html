@@ -16,6 +16,12 @@ rel="stylesheet">
 </head>
 
 <body>
+
+{% if request.user.is_authenticated %}
+  <b>Bem-vindo, {{ request.user.username }}</b> <br>
+  <a href="/users/logout">Logout</a>
+{% endif %}
+  
   <h1>Gustavo Rocha Barros</h1>
   <h2>Meus pokémons favoritos</h2>
   <p style="text-align: justify;">
