@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Lista pokémon</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}"/>
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap" 
+rel="stylesheet">
+</head>
+
+<body>
+  <h1>Gustavo Rocha Barros</h1>
+  <h2>Meus pokémons favoritos</h2>
+  <p style="text-align: justify;">
+    Um jogo que eu gosto de jogar durante as férias é pokémon. Quando eu tenho um grande tempo livre, como nas férias, eu costumo jogar alguns jogos da série enquanto faço outras coisas. Eu gosto bastante dos jogos porque eles não precisam de muita atenção, então eu posso fazer outras coisas enquanto jogo, além de que é divertido completar a pokédex capturando todos os pokémons. Então, eu vou falar sobre o meu pokemon favorito e fazer algumas menções honrosas.</p>
+  <div class="centered_column">
+    <img class="double" src="https://c4.wallpaperflare.com/wallpaper/785/819/716/pokemon-christmas-holiday-pikachu-wallpaper-preview.jpg">
+  </div>
+  
+  <h2>Meu pokémon favorito é:</h2>
+  <div class="centered_column">
+    <h2><b style="color: darkcyan">Mudkip</b></h2>
+    <img src="https://4.bp.blogspot.com/-pmH_1G5hgMY/U98Tz6Gr5sI/AAAAAAAAGm8/FBvVKvdRsxs/s1600/1.png">
+    <a href="https://www.amazon.com.br/Pokémon-Center-Sitting-Cuties-Mudkip/dp/B0BB1NHSSR/" target="_blank"><h6 class="notebox">Link para comprar um plushie do mudkip</h6></a>
+  </div>
+
+  <div>
+  
+  <!-- <form method="POST"  enctype="multipart/form-data">
+   {% csrf_token %}
+   {{formM}}
+    <button type="submit" name="btnform1">Save Changes</button>
+  </form> -->
+    
+    <h2>Motivos para eu gostar do Mudkip:</h2>
+    <!-- <ul>
+      <li>Ele tem um sorriso muito <u>carismático</u></li>
+      <li><i>A versão shiny dele é muito bonita</i></li>
+      <img src="https://static.pokemonpets.com/images/monsters-images-800-800/2258-Shiny-Mudkip.webp" width="100">
+      <li>A última evolução dele tem uma combinação boa de elementos</li>
+      <li><b>A mega evolução dele é bombada</b></li>
+     <img src="https://static.pokemonpets.com/images/monsters-images-800-800/8260-Mega-Swampert.webp" width="100">
+    </ul> -->
+    <ul>
+      {% for motivo in motivos %}
+      <li>
+      {{ motivo.title }}
+      <a href="/motivos/update/{{ motivo.id }}">Atualizar</a>
+      <a href="/motivos/delete/{{ motivo.id }}">Deletar</a>
+      </li>
+      {% endfor %}
+      <a href="/motivos">Insira seu motivo</a>
+    </ul>
+    <div class="centered_side">
+    <img src="https://static.pokemonpets.com/images/monsters-images-800-800/2258-Shiny-Mudkip.webp" width="150">
+     <img src="https://static.pokemonpets.com/images/monsters-images-800-800/8260-Mega-Swampert.webp" width="200"></div>
+  </div>
+  
+  <h2>Stats do Swampert (evolução do mudkip):</h2>
+  <table style="width:100%">
+  <colgroup>
+    <col style="background-color:#c2c2c2">
+    <col style="background-color:#FF5959">
+    <col style="background-color:#F5AC78">
+    <col style="background-color:#FAE078">
+    <col style="background-color:#9DB7F5">
+    <col style="background-color:#A7DB8D">
+    <col style="background-color:#FA92B2">
+    <col style="background-color:#9DB7F5">
+  </colgroup>
+  <tr>
+  	<th style="background-color: white;">Pokémon</th>
+    <!-- <th>HP</th>
+    <th>Attack</th>
+    <th>Defense</th>
+    <th>Sp.Atk.</th>
+    <th>Sp.Def.</th>
+    <th>Speed</th>
+    <th>Total</th> -->
+
+    {% for data in tabeladata %}
+      <th>{{ data.title }}</th>
+      {% endfor %}
+  </tr>
+  <tr>
+    <td><b>Swampert</b></td>
+    <!-- <td>100</td>
+    <td>110</td>
+    <td>90</td>
+    <td>85</td>
+    <td>90</td>
+    <td>60</td>
+    <td>535</td> -->
+
+    {% for data in tabeladata %}
+      <td>{{ data.statS }}</td>
+      {% endfor %}
+  </tr>
+  <tr>
+    <td><b>Mega Swampert</b></td>
+    <!-- <td>100</td>
+    <td>150</td>
+    <td>110</td>
+    <td>95</td>
+    <td>110</td>
+    <td>70</td>
+    <td>635</td> -->
+
+    {% for data in tabeladata %}
+      <td>{{ data.statM }}</td>
+      {% endfor %}
+  </tr>
+</table>
+
+  <p style="text-align: justify;">A tabela acima representa os stats do Swampert e, a partir disso, nota-se que o atributo de ataque em sua forma <i>mega</i> é bastante alto. Dessa forma, o Mega Swampert faz jus ao seu físico <del>de quem usa anabolizantes</del>.</p>
+  <div class="centered_side">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgm40BRmNKTzOsB7z18LyWhBVNKvBVRRlWsg&usqp=CAU">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCDEI8mNBKaB00dwk81i9R-ky1H_8gExdkXXWLFvRdx9JXGh1N73DbWXYDS6dcCzyh-Ss&usqp=CAU">
+  </div>
+  
+<!-- <form method="POST"  enctype="multipart/form-data">
+  {% csrf_token %}
+  {{formP}}
+  <button type="submit" name="btnform2">Save Changes</button>
+</form> -->
+  
+  <h2>O resto do meu Top5 pokémons:</h2>
+  <div class="centered_column">
+    <!-- <ol>
+      <li><span style="color: #6487c2;">Spheal</span></li>
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/363.png" width="200">
+      <li><span style="color:  #bc1a23
+;">Decidueye</span></li>
+      <img src="https://legends.pokemon.com/assets/pokemon/pokemon_decidueye.png" width="200">
+      <li><span style="color: #ec910b;">Ampharos</span></li>
+      <img src="https://static.pokemonpets.com/images/monsters-images-800-800/181-Ampharos.webp" width="200">
+      <li><span style="color: #497572;">Abomasnow</span></li>
+      <img src="https://images.gameinfo.io/pokemon/256/p460f375.png" width="200">
+    </ol> -->
+    
+    <ol>
+      {% for pokemons in pokemons %}
+      <li><span style="color: {{ pokemons.color }}">{{ pokemons.title }}</span></li>
+      <div class="centered_side"><img src="{{ pokemons.img }}" width="200">
+        <div>
+      <a href="/pokemons/update/{{ pokemons.id }}">Atualizar</a>
+      <a href="/pokemons/delete/{{ pokemons.id }}">Deletar</a>
+          </div>
+      </div>
+      {% endfor %}
+      <a href="/pokemons">Insira seu Pokémon:</a>
+    </ol>
+    <p style="text-align: justify;">Cada um desses outros pokémons também são muito legais, seja por serem engraçados ou simplesmente fortes em seus respectivos jogos, fazendo com que eu use eles frequentemente em minhas equipes.</p>
+  </div>
+    
+
+</body>

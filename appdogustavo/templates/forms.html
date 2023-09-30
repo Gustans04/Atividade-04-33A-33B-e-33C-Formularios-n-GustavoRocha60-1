@@ -1,0 +1,23 @@
+<h1>{{ action }} {{ tipo }}:</h1>
+<form method="POST"  enctype="multipart/form-data">
+   {% csrf_token %}
+   {{formP.as_p}}
+   {% csrf_token %} 
+   {{formM.as_p}}
+    <button type="submit">Save Changes</button>
+  </form>
+<form method="POST">
+  {% csrf_token %}
+<p><button name='voltar' type='submit'>Voltar</button></p>
+</form>
+<!-- <form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{formP.as_p}}
+  {% for field in formP %}
+    <p>
+      {{field.label}}
+      {{field}}
+    </p>
+  {% endfor %}
+  <button type="submit" name="btnform2">Save Changes</button>
+</form> -->

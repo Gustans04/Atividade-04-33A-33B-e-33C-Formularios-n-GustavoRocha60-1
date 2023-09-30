@@ -1,0 +1,7 @@
+Você tem certeza que deseja deletar o {{ tipo }}: {{ nome }}?
+
+<form method="POST">
+  {% csrf_token %}
+  <input type="submit" name='confirm' value='Sim'>
+  <input type="submit" name='refuse' value='Não'>
+</form>

@@ -1,0 +1,49 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Nunito';
+  background-color: #d2d2d2;
+  background-image: url(https://static.vecteezy.com/system/resources/previews/000/584/379/original/abstract-white-paper-textured-background-for-design-your-work-texture-vector.jpg);
+}
+
+.centered_column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered_side{
+  display: flex;
+  justify-content: center;
+}
+
+table, th, td {
+  border-collapse: collapse;
+	border:1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.notebox {
+  border: 1px solid #666;
+  padding: .5em;
+}
+
+ol{
+  font-size: 250%;
+}
+
+a:hover {
+    color:hotpink;
+}   
+
+p, ul{
+  font-size: 150%;
+}
+
+img.double{
+  border-style: double;
+}
