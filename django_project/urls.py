@@ -25,5 +25,4 @@ urlpatterns = [
     path('pokemons/', views.create_pokemon),
     path('pokemons/update/<id>', views.update_pokemon),
     path('pokemons/delete/<id>', views.delete_pokemon),
-    path('admin/', admin.site.urls),
 ]
